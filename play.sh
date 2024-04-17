@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-IMAGE=ghcr.io/model-driven-devops/ansible-mdd/mdd:1.2.10
+IMAGE=ghcr.io/model-driven-devops/mdd:1.2.6rc5
 
 OPTIONS="--env ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3"
 if [[ ! -z "$ANSIBLE_VAULT_PASSWORD_FILE" ]]; then
@@ -13,6 +13,7 @@ OPTION_LIST=( \
    "CML_PASSWORD" \
    "CML_LAB" \
    "CML_VERIFY_CERT" \
+   "CML_PATTY_BASE_PORT" \
    "ANSIBLE_INVENTORY" \
    "NSO_URL" \
    "NSO_USERNAME" \
