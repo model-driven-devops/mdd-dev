@@ -14,3 +14,4 @@ boto3
 nso-oc==2.79.3
 networkx
 scipy
+j2ipaddr
