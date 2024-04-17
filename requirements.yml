@@ -1,7 +1,7 @@
 collections:
-  - name: https://github.com/ciscodevnet/ansible-cml.git
+  - name: https://github.com/ciscodevnet/ansible-cml.git,patty
     type: git
-  - name: https://github.com/model-driven-devops/ansible-mdd.git,1.2.10
+  - name: https://github.com/model-driven-devops/ansible-mdd.git,1.2.15-rc2
     type: git
   - name: https://github.com/model-driven-devops/ansible-nso.git
     type: git

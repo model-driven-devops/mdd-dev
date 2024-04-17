@@ -1,4 +1,5 @@
-cml_lab_file: "{{ lookup('env', 'PWD') }}/files/arch4_csr_pop.yaml.j2"
+cml_lab_file: "{{ lookup('env', 'PWD') }}/files/arch4_csr_pop_patty.yaml.j2"
+cml_patty_base_port: "{{ lookup('env', 'CML_PATTY_BASE_PORT') | default(2010, true) }}"
 cml_device_template:
   switch:
     node_definition: iosvl2
