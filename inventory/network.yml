@@ -16,12 +16,16 @@ all:
     network:
       children:
         switches:
+          vars:
+            mgmt_interface: GigabitEthernet0/0
           hosts:
             hq-sw1:
             hq-sw2:
             site1-sw1:
             site2-sw1:
         routers:
+          vars:
+            mgmt_interface: GigabitEthernet1
           children:
             hq_routers:
               hosts:
@@ -33,6 +37,8 @@ all:
                 site1-rtr1:
                 site2-rtr1:
         WAN_routers:
+          vars:
+            mgmt_interface: GigabitEthernet1
           hosts:
             WAN-rtr1:
     org:
