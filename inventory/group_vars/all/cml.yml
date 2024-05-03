@@ -3,20 +3,17 @@ cml_patty_base_port: "{{ lookup('env', 'CML_PATTY_BASE_PORT') | default(2010, tr
 cml_device_template:
   switch:
     node_definition: iosvl2
-    mgmt_interface: GigabitEthernet0/0
     tags:
       - switch
     type: switch
   router:
     node_definition: csr1000v
-    mgmt_interface: GigabitEthernet1
     tags:
       - router
     type: router
   l3switch:
     # node_definition: catalyst9000v_dd
     node_definition: iosvl2
-    mgmt_interface: GigabitEthernet0/0
     tags:
       - l3switch
     type: l3switch
