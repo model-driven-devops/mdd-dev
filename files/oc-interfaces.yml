@@ -1,0 +1,124 @@
+---
+mdd_data:
+  mdd:openconfig:
+    openconfig-interfaces:interfaces:
+      openconfig-interfaces:interface:
+        - openconfig-interfaces:name: GigabitEthernet0/0
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet0/0
+            openconfig-interfaces:type: l2vlan
+          openconfig-interfaces:subinterfaces:
+            openconfig-interfaces:subinterface:
+              - openconfig-interfaces:index: 0
+                openconfig-interfaces:config:
+                  openconfig-interfaces:index: 0
+                openconfig-if-ip:ipv4:
+                  openconfig-if-ip:config:
+                    openconfig-if-ip:dhcp-client: true
+        - openconfig-interfaces:name: GigabitEthernet0/1
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet0/1
+            openconfig-interfaces:type: l2vlan
+          openconfig-if-ethernet:ethernet:
+            openconfig-vlan:switched-vlan:
+              openconfig-vlan:config:
+                openconfig-vlan:interface-mode: TRUNK
+                openconfig-vlan:native-vlan: 1
+                openconfig-vlan:trunk-vlans:
+                  - 10
+        - openconfig-interfaces:name: GigabitEthernet0/2
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet0/2
+            openconfig-interfaces:type: l2vlan
+          openconfig-if-ethernet:ethernet:
+            openconfig-vlan:switched-vlan:
+              openconfig-vlan:config:
+                openconfig-vlan:access-vlan: 10
+                openconfig-vlan:interface-mode: ACCESS
+        - openconfig-interfaces:name: GigabitEthernet0/3
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet0/3
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet1/0
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet1/0
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet1/1
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet1/1
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet1/2
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet1/2
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet1/3
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet1/3
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet2/0
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet2/0
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet2/1
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet2/1
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet2/2
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet2/2
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet2/3
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet2/3
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet3/0
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet3/0
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet3/1
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet3/1
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet3/2
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet3/2
+            openconfig-interfaces:type: ethernetCsmacd
+        - openconfig-interfaces:name: GigabitEthernet3/3
+          openconfig-interfaces:config:
+            openconfig-interfaces:enabled: true
+            openconfig-interfaces:name: GigabitEthernet3/3
+            openconfig-interfaces:type: ethernetCsmacd
+    openconfig-network-instance:network-instances:
+      openconfig-network-instance:network-instance:
+        - openconfig-network-instance:name: Mgmt-intf
+          openconfig-network-instance:config:
+            openconfig-network-instance:name: Mgmt-intf
+            openconfig-network-instance:type: L3VRF
+            openconfig-network-instance:enabled: true
+            openconfig-network-instance:enabled-address-families:
+              - IPV4
+              - IPV6
+          openconfig-network-instance:interfaces:
+            openconfig-network-instance:interface:
+              - openconfig-network-instance:id: GigabitEthernet0/0
+                openconfig-network-instance:config:
+                  openconfig-network-instance:id: GigabitEthernet0/0
+                  openconfig-network-instance:interface: GigabitEthernet0/0
+                  openconfig-network-instance:subinterface: 0
+mdd_tags:
+  - all
