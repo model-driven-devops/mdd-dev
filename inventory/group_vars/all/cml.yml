@@ -1,4 +1,4 @@
-cml_lab_file: "{{ lookup('env', 'PWD') }}/files/arch4_csr_pop_patty.yaml.j2"
+cml_lab_file: "{{ lookup('env', 'PWD') }}/files/arch5_csr_pop_patty.yaml.j2"
 cml_patty_base_port: "{{ lookup('env', 'CML_PATTY_BASE_PORT') | default(2010, true) }}"
 cml_device_template:
   switch:
@@ -22,10 +22,10 @@ cml_device_template:
     tags: []
 # Default interface mappings for CML, uncomment to add/modify
 # Note: any interfaces not handled here will be truncated when mapping physical to virtual
-# cml_default_mappings:
-#     Loopback(\d+): Loopback\1
-#     Port-channel(\d+): Port-channel\1
-#     Tunnel(\d+): Tunnel\1
-#     Vlan(\d+): Vlan\1
-#     vasileft(\d+): vasileft\1
-#     vasiright(\d+): vasiright\1  
+cml_default_mappings:
+    Loopback(\d+): Loopback\1
+    Port-channel(\d+): Port-channel\1
+    Tunnel(\d+): Tunnel\1
+    Vlan(\d+): Vlan\1
+    vasileft(\d+): vasileft\1
+    vasiright(\d+): vasiright\1  
