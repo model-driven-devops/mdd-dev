@@ -1380,11 +1380,11 @@ nodes:
     interfaces:
       - id: i0
         slot: 0
-        label: enp0s2
+        label: ens2
         type: physical
       - id: i1
         slot: 1
-        label: enp0s3
+        label: ens3
         type: physical
   - id: n21
     label: hq-host1
@@ -1418,11 +1418,11 @@ nodes:
     interfaces:
       - id: i0
         slot: 0
-        label: enp0s2
+        label: ens2
         type: physical
       - id: i1
         slot: 1
-        label: enp0s3
+        label: ens3
         type: physical
   - id: n1
     label: internet-mgmt
@@ -1718,7 +1718,7 @@ nodes:
     interfaces:
       - id: i0
         slot: 0
-        label: enp0s2
+        label: ens2
         type: physical
   - id: n13
     label: hq-mgmt-bridge
@@ -1902,11 +1902,11 @@ nodes:
     interfaces:
       - id: i0
         slot: 0
-        label: enp0s2
+        label: ens2
         type: physical
       - id: i1
         slot: 1
-        label: enp0s3
+        label: ens3
         type: physical
   - id: n19
     label: internet-out

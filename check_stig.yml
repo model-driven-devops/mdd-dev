@@ -1,0 +1,39 @@
+---
+- name: Check Cisco Router Configs Against STIG
+  hosts: routers
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Gather running configuration from the router
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: router_config
+
+    - name: Send prompt to Bedrock
+      bedrock_prompt:
+        prompt: |
+          Check this CLI config against the Cisco IOS Router RTR Security Technical Implementation Guide STIG
+          and return a only JSON structure (no other text) with a list of dicts, each dict containing:
+          - A list of dicts (as findings) with the following keys:
+          - The finding ID (as finding_id)
+          - The finding description (as finding_description)
+          - The offending line of the config if applicable (as offending_line)
+          - The remediation steps if applicable (as remediation)
+          - Example config to remediate if applicable (as remediation_example)
+          - The severity of the finding (as severity)
+          - The STIG ID (as stig_id)
+          - In addition to the findings, include the config that can be added to the router to remediate the findings (as remediation_config)
+
+          Do not introduce the JSON structure in the output, only the JSON structure itself.
+
+          The config is:
+          {{ router_config.stdout[0] }}
+        model_id: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"
+        region: "us-east-1"
+        max_tokens: 2048
+      register: bedrock_result
+
+    - name: Print the JSON structure returned by AWS Bedrock
+      debug:
+        var: bedrock_result.bedrock_response

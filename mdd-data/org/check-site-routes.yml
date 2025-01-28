@@ -6,7 +6,7 @@ mdd_checks:
   - name: Check Network-wide Routes
     command: 'show ip route vrf internal_1'
     schema: 'pyats/show_ip_route.yml.j2'
-    method: cli_parse
+    method: nso_parse
     check_vars:
       vrf: internal_1
       routes:

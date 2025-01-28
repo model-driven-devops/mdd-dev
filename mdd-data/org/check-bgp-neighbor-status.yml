@@ -6,4 +6,4 @@ mdd_checks:
   - name: BGP VPNV4 Neighbor Status
     command: 'show ip bgp vpnv4 all neighbors'
     schema: 'pyats/bgp-neighbor-state.yml'
-    method: cli_parse
+    method: nso_parse

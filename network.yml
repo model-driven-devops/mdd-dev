@@ -1,0 +1,84 @@
+all:
+  vars:
+    ansible_user: "{{ lookup('env', 'NSO_DEVICES_USERNAME') | default('admin', true) }}"
+    ansible_password: "{{ lookup('env', 'NSO_DEVICES_PASSWORD') | default('admin', true) }}"
+    ansible_network_os: ios
+    netconf_template_os: ios
+    sites:
+      - hq
+      - site1
+      - site2
+    regions:
+      - org
+      - region1
+      - region2
+  children:
+    network:
+      children:
+        switches:
+          hosts:
+            hq-sw1:
+            hq-sw2:
+            site1-sw1:
+            site2-sw1:
+        routers:
+          children:
+            hq_routers:
+              hosts:
+                hq-rtr1:
+                hq-rtr2:
+                hq-pop:
+            site_routers:
+              hosts:
+                site1-rtr1:
+                  ansible_host: 192.133.186.28
+                site2-rtr1:
+        WAN_routers:
+          hosts:
+            WAN-rtr1:
+    org:
+      children:
+        region1:
+          children:
+            hq:
+              hosts:
+                hq-rtr1:
+                  tags:
+                    - hq_router
+                    - bgp
+                    - ospf
+                hq-rtr2:
+                  tags:
+                    - hq_router
+                    - bgp
+                    - ospf
+                hq-sw1:
+                  tags:
+                    - switch
+                hq-sw2:
+                  tags:
+                    - switch
+                hq-pop:
+                  tags:
+                    - hq_pop
+                WAN-rtr1:
+                  tags:
+                    - WAN_router
+            site1:
+              hosts:
+                site1-rtr1:
+                  tags:
+                    - site_router
+                site1-sw1:
+                  tags:
+                    - switch
+        region2:
+          children:
+            site2:
+              hosts:
+                site2-rtr1:
+                  tags:
+                    - site_router
+                site2-sw1:
+                  tags:
+                    - switch

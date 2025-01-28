@@ -1,0 +1,13 @@
+- name: Test Bedrock prompt
+  hosts: localhost
+  tasks:
+    - name: Send prompt to Bedrock
+      bedrock_prompt:
+        prompt: "What are the key benefits of cloud computing?"
+        model_id: "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1"
+        region: "us-east-1"
+      register: bedrock_result
+
+    - name: Display Bedrock response
+      debug:
+        var: bedrock_result.bedrock_response

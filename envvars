@@ -1,7 +1,7 @@
 export ANSIBLE_COLLECTIONS_PATH=./
 export ANSIBLE_PYTHON_INTERPRETER=${VIRTUAL_ENV}/bin/python 
-export CML_HOST=YOUR_CML_HOST
-export CML_USERNAME=YOUR_CML_USERNAME
-export CML_PASSWORD=YOUR_CML_PASSWORD
-export CML_LAB=YOUR_CML_LAB
+export CML_HOST=cpn-rtp-cml2.ciscops.net
+export CML_USERNAME=mdd
+export CML_PASSWORD=mdd4thewin!
+export CML_LAB=stevenca-mdd
 export CML_VERIFY_CERT=false
